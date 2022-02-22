@@ -1,6 +1,7 @@
 package com.example.jdbi.configuration;
 
 import com.example.jdbi.model.Developer;
+import lombok.AllArgsConstructor;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.mapper.reflect.ConstructorMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,11 @@ import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy;
 import javax.sql.DataSource;
 
 @Configuration
+@AllArgsConstructor
 public class PersistenceConfiguration {
 
-    @Autowired
-    private DataSource dataSource;
+    
+    private final DataSource dataSource;
 
     @Bean
     public Jdbi jdbi(DataSource dataSource) {
